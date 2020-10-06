@@ -4,18 +4,18 @@
 
 #ifndef LAB07_FILES_SERIALIZATION_PERSONLIST_H
 #define LAB07_FILES_SERIALIZATION_PERSONLIST_H
+
 #include"Person.h"
 #include<vector>
 
-class PersonList
-{
+class PersonList {
 protected:
     vector<Person> personList;
 public:
-    void addPerson(Person person)
-    {
+    void addPerson(Person person) {
         personList.push_back(person);
     }
 
 };
+
 #endif //LAB07_FILES_SERIALIZATION_PERSONLIST_H
