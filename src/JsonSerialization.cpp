@@ -14,29 +14,29 @@ void JsonSerialization::serialize(PersonList personList) {
 void JsonSerialization::deserialize(PersonList personList) {
 
     //guarda el archivo
-    ofstream archivo;
-    try { archivo.open("ArchivoTexto.json", ios::binary); }
+    ofstream file;
+    try { file.open("TextFile.json", ios::binary); }
     catch (ifstream::failure a) {
-        cout << "No se pudo abrir el archivo";
+        cout << "Can not open file";
         exit(1);
     }
 
-    archivo << peopleSerialize << '\n';
+    file << peopleSerialize << '\n';
 
-    archivo.close();
+    file.close();
 
-    ifstream archivo1;
+    ifstream file1;
     string texto;
-    try { archivo1.open("ArchivoTexto.json", ios::binary); }
+    try { file1.open("TextFile.json", ios::binary); }
     catch (ifstream::failure a) {
-        cout << "No se pudo abrir el archivo";
+        cout << "Can not open file";
         exit(1);
     }
     cout << endl;
-    while (!archivo1.eof()) {
-        getline(archivo1, texto);
+    while (!file1.eof()) {
+        getline(file1, texto);
         cout << texto << endl;
     }
-    archivo1.close();
+    file1.close();
 }
 
