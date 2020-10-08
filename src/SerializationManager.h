@@ -7,18 +7,19 @@
 
 #include<fstream>
 #include"ISerialization.h"
+#include"BinaryFile.h"
 #include"PersonList.h"
 #include"Person.h"
+#include<iostream>
 
 using namespace std;
 
-#include<iostream>
 
 class SerializationManager {
 
 public:
 
-    void savePersonBinaryFile(Person person);
+    void saveBinaryFile(PersonList personList, BinaryFile* binaryFile);
 
     void load(Person &person);
 
