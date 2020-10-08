@@ -5,13 +5,8 @@
 
 #include"SerializationManager.h"
 
-void SerializationManager::savePersonBinaryFile(Person person) {
-    ofstream archivo;
-    try { archivo.open("ArchivoBinario.dat", ios::app | ios::binary); }
-    catch (std::ifstream::failure a) { cout << "no se pudo abrir el archivo"; }
-    archivo.write((char *) &person, sizeof(Person));
-    archivo.close();
-
+void SerializationManager::saveBinaryFile(PersonList personList, BinaryFile* binaryFile) {
+    binaryFile->savePersonBinaryFile(personList);
 }
 
 void SerializationManager::serialize(PersonList personList, ISerialization *serializationMethod) {
@@ -26,10 +21,10 @@ void SerializationManager::deserialize(PersonList personList, ISerialization *se
 void SerializationManager::load(Person &person) {
     ifstream archivo;
 
-    try { archivo.open("ArchivoBinario.dat", ios::in | ios::binary); }
+    try { archivo.open("BinaryFile.dat", ios::in | ios::binary); }
 
     catch (std::ifstream::failure a) {
-        cout << "no se pudo abrir el archivo";
+        cout << "Can not open file";
         exit(1);
     }
     archivo.read((char *) &person, sizeof(Person));
