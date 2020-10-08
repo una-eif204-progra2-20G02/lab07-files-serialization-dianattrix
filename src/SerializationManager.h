@@ -19,13 +19,13 @@ class SerializationManager {
 
 public:
 
-    void saveBinaryFile(PersonList personList, BinaryFile* binaryFile);
+    static void saveBinaryFile(const PersonList& personList);
 
-    void load(Person &person);
+    static void load(Person &person);
 
-    void serialize(PersonList personList, ISerialization *serializationMethod);
+    static void serialize(const PersonList& personList, ISerialization *serializationMethod);
 
-    void deserialize(PersonList personList, ISerialization *serializationMethod);
+    static void deserialize(const PersonList& personList, ISerialization *serializationMethod);
 
 
 };

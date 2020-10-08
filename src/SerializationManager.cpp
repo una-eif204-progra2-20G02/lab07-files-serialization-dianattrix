@@ -5,15 +5,15 @@
 
 #include"SerializationManager.h"
 
-void SerializationManager::saveBinaryFile(PersonList personList, BinaryFile* binaryFile) {
-    binaryFile->savePersonBinaryFile(personList);
+void SerializationManager::saveBinaryFile(const PersonList& personList) {
+    BinaryFile::savePersonBinaryFile(personList);
 }
 
-void SerializationManager::serialize(PersonList personList, ISerialization *serializationMethod) {
+void SerializationManager::serialize(const PersonList& personList, ISerialization *serializationMethod) {
     serializationMethod->serialize(personList);
 }
 
-void SerializationManager::deserialize(PersonList personList, ISerialization *serializationMethod) {
+void SerializationManager::deserialize(const PersonList& personList, ISerialization *serializationMethod) {
     serializationMethod->deserialize(personList);
 }
 

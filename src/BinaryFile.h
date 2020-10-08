@@ -10,7 +10,7 @@
 
 class BinaryFile {
 public:
-    void savePersonBinaryFile(PersonList person);
+    static void savePersonBinaryFile(PersonList person);
 };
 
 #endif //LAB07_FILES_SERIALIZATION_BINARYFILE_H
