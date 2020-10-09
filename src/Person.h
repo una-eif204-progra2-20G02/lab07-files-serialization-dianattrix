@@ -61,6 +61,11 @@ struct Person {
         return out.str();
     }
 
+    ~Person()
+    {
+
+    }
+
 };
 
 

@@ -4,16 +4,26 @@
 
 #include "JsonSerialization.h"
 
+
+void JsonSerialization::to_json(Person &_person) {
+    jsonPeople = json{
+            {"id",   _person.getId()},
+            {"name", _person.getName()},
+    };
+}
+
+void JsonSerialization::from_json(Person &_person) {
+    _person.setId(jsonPeople.at("id").get<int>());
+    _person.setName(jsonPeople.at("name").get<std::string>());
+}
+
 void JsonSerialization::serialize(PersonList personList) {
-
-    jsonPeople["Person list: "] = {personList.toString()};
-
+    jsonPeople[personList.toString()];
     peopleSerialize = jsonPeople.dump();
 }
 
 void JsonSerialization::deserialize(PersonList personList) {
-
-    //guarda el archivo
+    
     ofstream file;
     try { file.open("TextFile.json", ios::binary); }
     catch (ifstream::failure a) {
